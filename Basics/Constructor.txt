@@ -1,0 +1,69 @@
+Constructors
+
+They are like blueprints for creating objects
+
+in JavaScript, we have constructor functions() for creating objects.
+Each constructor function can create various different instances/copies of the same object
+
+Eg: A constructor function named apple, which will create object of apple 
+type but with varying instances, such as different colors , size, price etc.
+But they are of the same type as of apple.
+
+
+Naming convention - 
+Whenever defining constructor function, start the name with a Captial letter as to 
+distinguish it from other normal functions
+
+Eg: function Apple()
+    function Ball() 
+
+
+Defining a Constructor Function
+Eg:	function Apple(x, y, color, score){
+		this.x = x;
+		this.y = y;
+		this.color = color;
+		this.price = price;
+	}
+
+	new Apple(10, 20, "red", 200);
+
+this.x=x;
+LHS x is the property of that object
+RHS x is the value assigned to the property.
+
+new keyword is used to change the context from default windows to the new context 
+that is created.
+
+	new Apple(10, 20, "red", 200);
+	->Apple{x:10, y:20, color: "red", price: 200};
+ 	Here an  object named Apple is created with the following properties 
+	as a single instance. 
+
+But there is a problem one can't refer to this specific instance of the 
+of the object created by new.
+
+So whenever creating a new instance assign a memory pointer/symbol to that instance.
+
+Eg: var apple1 = new Apple(10, 20, "red", 200);
+	Now the instance created can be referred by apple1 memory pointer/symbol.
+
+	-apple1;
+	->Apple{x:10, y:20, color: "red", price: 200};
+
+Eg: var apple2 = new Apple(20, 50, "green", 350);
+	Now another instance created can be referred by apple2 memory pointer/symbol.
+
+	-apple2;
+	->Apple{x:20, y:50, color: "green", price: 350};
+
+You can create as many instances/copies of a given object and each instance
+is independent/unique of each other.
+
+Eg: var apple1 = new Apple(10, 20, "red", 200);
+    var apple2 = new Apple(20, 50, "green", 350);
+    var apple2 = new Apple(30, 70, "pink", 450);
+
+3 instances/copies of the same object apple each with unique properties
+and independent of each other. They can be accessed via their memory pointer
+names.

@@ -1,0 +1,135 @@
+This Context
+
+It has a specific context.
+
+this by default points/refers to the Window objects.
+
+It just jumps one context out and searches for the memory pointer.
+
+Eg: var object = {
+		prop: this,
+
+	};
+
+	object.prop
+	->Window{}
+	This points to the Window obj here.
+	One context out - refers to window obj
+
+Eg: Var array = [
+		this,
+	};
+
+	array[0];
+	->Window{}
+	This points to the Window obj here
+
+
+Eg: For a global function/sub-routine
+	function global(){
+		return this;
+	}
+	global();
+	->Window{}
+	This points to the Window obj here
+	
+
+
+//CALLABLE OBJECTS (FUNCTION) ALLOW US TO CHANGE THE POINTING OF THIS FROM WINDOW 
+OBJECT TO SOMETHING OTHER
+
+here method is created with this placed inside the method, this now refers to the 
+context which contains the above created method.
+Eg: var object = {
+		prop: this,
+		method: function(){ return this;}
+
+	};
+
+	Object.method();
+	->Object{} - now it points to object named object instead of the Window Object
+			   ie where the method containing this is located. Hence context is modified.
+
+Eg: Var array = [
+		this,
+	};
+
+	array[1]();
+	->[Window, function] - now it points to the array named array instead of the Window Object
+			   ie where the method containing this is located. Hence context is modified.
+
+
+
+Eg: For a global function/sub-routine
+	function global(){
+		return this;
+	}
+Eg: var object = {
+		prop: this,
+		embed:
+		{
+			embed:true;
+			method: function(){ return this;}
+		}
+	};
+
+	object.embed.method();
+	->Object { embed: true, method: function} - now it points to the embedded object named embed instead of the Window Object
+			   ie the place where the method containing this is located. Hence context is modified.
+
+global(); -> standard way of invoking a function
+global.call(); ->another way of invoking a function (function_name.call();)
+
+
+through the call method, one can assign different objects to this when passed
+as arguments can change the context.
+
+Eg: var object = {
+		prop: this;
+		method: function(){ return this;}
+
+	};
+
+	function global(){
+		return this;
+	}
+
+	global.call(object);
+
+	assigns the object named object to this, and then the context is
+	modified
+
+	->Object{} - context changed from windows to object
+
+
+Another way of changing context
+
+new keyword can be used - before invoking the function
+
+Eg: 	function global(){
+		return this;
+	}
+
+	new global();
+
+	-global();
+	->window
+		By default this context is windows, and new modifies the 
+		function to this and hence the context is modified
+
+	- new global();
+	->global{}
+			context is modified
+
+
+ Summary
+when used the standard method, Eg: object.embed.method();
+						 points to the place where the method is present
+
+When used call method, Eg: object.embed.method.call(array);
+						 points to the memory pointer that is passes as 
+						 argument if it exits.Here points to an array named array.
+When new keyword is used. Eg new.object.embed.method();
+						points to the new context that is created
+
+

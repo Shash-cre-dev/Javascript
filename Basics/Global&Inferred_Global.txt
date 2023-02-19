@@ -1,0 +1,127 @@
+Global Scope
+
+they can be accessed anywhere in the code.
+
+Eg: Window obj
+
+Can be accessed anywhere(warehouse for accessing/storing all objects, functions, variables in JS)
+
+Inferred  
+meaning: to derive/deduce
+
+The Git compiler tries to find memory pointers from one scope if not found it moves to another
+scope.
+
+If still not found it goes to the global scope, ie inferring global
+
+
+Eg: 
+
+var engine ={}
+
+function runExpression(){
+	var a = 10;
+	
+	function add(){
+		console.log(engine);
+	}
+
+	add();
+}
+
+First the git compiler searches for engine (memory pointer) inside the scope of add()- not found
+moves to the scope of runExpression - not found
+then moves to the window obj/scope - there found
+
+ie in window scope, we have a var named engine, so inferred global
+
+runExpression();
+->Object {} ie we found the memory pointer named engine.
+
+
+Eg: 
+
+var engine ={}
+
+function runExpression(){
+	var a = 10;
+	
+	function add(){
+		console.log(test);
+	}
+
+	add();
+}
+
+runExpression();
+Error undefined
+as memory pointer with name test doesn't exist anywhere, not even the window scope
+
+Eg:
+var engine ={}
+
+function runExpression(){
+	var a = 10;
+	
+	function add(){
+		var engine = "String New Engine";
+		console.log.out(engine);
+
+	}
+
+	add();
+}
+
+runExpression();
+->engine = "String New Engine"
+cause it found the (memory pointer) engine in the add() scope and didn't inferred
+to global scope of window
+
+thus engine (object) remains unaffected.
+engine; - globally inferred
+->Object{}
+
+
+xxx But be careful when finding memory pointers
+var engine ={}
+
+function runExpression(){
+	var a = 10;
+	
+	function add(){
+		engine = "New String";
+	}
+
+	add();
+}
+
+engine;
+->"New String"
+It found the memory pointer in the global scope but it also assigned to the memory pointer
+with "New string" replaced the engine which earlier had {} (object)
+
+If you want to replace a global scope this is fine
+
+xxxBut if you want to add anything inside a scope
+use const/var keyword
+
+that then means that that particular memory pointer will be created and used
+inside that scope only.
+
+Eg:
+var engine ={}
+
+function runExpression(){
+	var a = 10;
+	
+	function add(){
+		var engine = "New String"
+
+	}
+
+	add();
+} 
+
+
+Here engine object which is globally inferred will remain unafffected.
+
