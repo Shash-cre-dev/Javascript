@@ -1,0 +1,81 @@
+Prototype with Constructors
+
+function Apple(color, weight)
+{
+	this.color = color;
+	this.weight = weight;
+}
+
+Apple.prototype{
+	eat : function(){ return "eat the apple";},
+	throw: function(){ return "throw the apple"};
+};
+
+var apple1 = new Apple("red", 99);
+var apple2 = new Apple("green", 109);
+var apple3 = new Apple("pink", 209);
+
+
+All the above objects instances will have a prototype linked to them,
+which contains the eat(), throw() method. Hence, saving memory by not uniquely placing them
+each time in an object instance.
+
+apple1;
+->Apple{color: "red", weight: 99}
+	 color: "red"
+	 weight: 99
+	 -proto_:Object
+
+Now the prototype is linked to the instance of the object with Apple.prototype.
+Every time neew instances are created, they will be linked to the prototype object.
+
+apple1.eat();
+->"eat the apple"
+
+
+apple2.eat();
+->"eat the apple"
+
+
+apple3.eat();
+->"eat the apple"
+
+You can individually target the prototype cand modify it, whenever you want
+Apple.prototype.eat() = function{ return "new apple eaten!!!!"};
+
+apple1.eat();
+->"new apple eaten!!!!!!";
+
+Now all the instances of the Apple Object will point to this modified prototype.
+
+# THIS CONTEXT
+it means context, what is it pointing to.
+
+function Apple(color, weight)
+{
+	this.color = color;
+	this.weight = weight;
+}
+
+Apple.prototype{
+	eat : function(){ return this;},
+	throw: function(){ return "throw the apple"};
+};
+
+var apple1 = new Apple("red", 99);
+var apple2 = new Apple("green", 109);
+var apple3 = new Apple("pink", 299);
+
+apple2.eat();
+->Apple{ color: "green", weight:109);
+
+This context points the the instance which calls the specific
+function eat(), here apple2 calls/invokes it. So this points to the instance of apple2
+ie an object instance/copy with following properties
+Apple{ color: "green", weight:109);
+
+similarly for apple1.eat(); and apple3.eat();
+where this context points to their unique instance which invoked/called for eat()
+, being apple1 and apple3.
+
+Be careful while naming methods inside prototype and object instances.

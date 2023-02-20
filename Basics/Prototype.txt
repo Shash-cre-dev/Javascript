@@ -1,0 +1,95 @@
+Prototype
+A unique/special trait of JavaScript is how it treats/works with objects.
+
+Prototypes - shared objects that can be accessed for their properties and
+methods by a range of instances of the objects. 
+
+
+function Apple(color, weight) {...} - constructor function that generates various innstances
+of the apple object
+
+Apple1{					
+	color: "red";					here we have three instances of the 								
+	weight: 22;					of an Apple object; 
+	eat(),						Each instance has its unique color and 
+	throw()						weight property,								
+}
+
+Apple2{							But the methods of eat() and throw()
+	color: "green";				are same in each instance.
+	weight: 12;
+	eat(),						In JS whenever instances are created each 
+	throw()						must be unique,to identify independently from each other,
+}								so there is no point of creating			
+								same methods of eat() and throw()in each instance 
+								as they aren't unique/keep repeating. 
+								They are wasting memory here.
+Apple3{
+	color: "pink";					So we can create a prototype and place these methods 
+	weight: 55;					inside that, which can be accessed by a number of different
+	eat(),						instances.
+	throw()
+}
+
+//Creating Prototype
+constructor_function_name.prototye
+
+Apple.prototype = {
+	eat();
+     throw();
+}
+
+By attaching a Prototype with a constructor, it acts as a shared object
+ie can be accessed by various instances of Apple1, Apple2 and Apple3 for
+eat() and throw() methods.
+
+So the instances are modified as
+
+Apple1{					
+	color: "red";													
+	weight: 22;					  													
+}
+
+Apple2{					Apple.prototype{      Every instance of the apple object
+	color: "green";				eat();	  is linked to the same prototype.								
+	weight: 12;					throw();  													
+}						}
+
+Apple3{					
+	color: "pink";													
+	weight: 55;					  													
+}
+
+So whenever I try to access any one instance ie Apple1, Apple2 or Apple3
+and try to access the eat method
+-Apple1.eat();
+
+it(JS) goes through an instance of Apple1 and tries to look for eat method,
+since eat method isn't inside the Apple1, it automatically moves to the 
+the prototype chain and searches for it and then we can invoke it.
+
+So we can have one eat() method, one throw() in prototype at the memory level 
+and that can be accessed by any number of instances created for the object 
+once Apple.prototype is used.
+
+This saves a lot of memory, and is further used  in various Js libraries, JQuery
+etc.
+
+
+Note: Another important aspect is the This keyword
+as how and the context from which the function/method is invoked.
+
+Apple1{					
+	color: "red";													
+	weight: 22;					  													
+}
+
+Apple.prototype{
+	eat(){ return this},	 							
+	throw();  													
+}	
+
+-Apple1.eat();
+doesn't point to the prototype where eat() is located, 
+it actually points to that particular instance that called for eat();
+ie Apple1 in this case. The context here is of Apple1.					

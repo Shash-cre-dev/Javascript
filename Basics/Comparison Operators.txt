@@ -1,0 +1,128 @@
+COMPARISON OPERATORS
+
+Always return a boolean value if correct/false.
+
+
+1. ==
+
+it compares the LHS and RHS on both sides of it.
+
+return true, if both are equal.
+
+Eg: 10 == 10;
+	->true
+
+Eg: 10 == 100;
+	->false
+
+you can also compare strings with ==, but remeber == is case sensitive.
+
+Eg: "hello" == "hello"
+	->true
+
+Eg: "hello" == "Hello"
+	->false
+
+Eg: 10.5 = 10.5
+	->true
+
+Eg: null == null;
+	->true
+
+Eg: undefined == undefined;
+	->true
+
+Eg: true == true
+	->true
+
+Eg: false == false
+	->false
+
+	->true
+
+Eg: true == false
+	->false
+
+NOTE: NaN is also a primitive data type but Nan == Nan -> false; they aren't equal.
+Don't use NaN with comparison operators.
+
+== uses polymorphism can modify certain datatypes
+
+Eg: null == undefined
+->true  as both of them mean nothing
+
+Eg: 10 == "10" 
+->true but here RHS "10" is a string and given more preference, as a string
+can contain numbers and characters. 
+
+But on naturally numeric != string, but it still results in true.
+
+2. ===
+
+To avoid the above problem === is used which compares values on both LHS and RHS
+and also if the datatypes are the same.
+
+polymorphism doesn't apply to ===.
+
+Eg: 10 === "10"
+	->false, both numeric and string datatype are different. No polymorphism.
+
+Eg: null === undefined
+	-> both mean the same, but they are different datatypes. So false,
+	polymorphism doesn't apply to ===.
+
+3. !=
+
+not equal to the operator, checks if LHS and RHS values are not equal. If not equal
+return false.
+
+Opposite of == operator.
+
+Eg: null != null;
+->false
+
+Eg: null != undefined;
+->false, polymorphism happens here.
+
+Eg:10 != 100;
+	->true
+
+Eg: 10 != "10";
+	->false, polymorphism happens here.
+
+4. !==
+
+To Avoid this polymorphism, !== is used. It will compare both value and datatype.
+
+Eg: 10 !== "10"
+	->true ,as numeric 10 is not equal to string "10".
+
+Eg: null != undefined;
+	->true ,technically they are not equal.
+
+5. >
+	greater than operator
+
+Eg: 10 > 100;
+	->false
+
+Eg: 10 > 1;
+	->true
+
+for strings
+Eg: "hello" > "hello";
+	->false
+
+Eg: "helloooooooo" > "hello";
+	->true
+
+6. >=
+	Greater than or equal to
+
+Eg: 10 >= 10
+	->true;
+
+Similarly we have < (less than) , <= (less than or equal to)
+
+NOTE: Don't use >, >=, <, <= with STRINGS, they are very confusing.
+
