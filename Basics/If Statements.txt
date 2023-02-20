@@ -1,0 +1,114 @@
+IF STATEMENT
+
+depending upon a condition, a set of instructions are executed.
+
+
+var carsLeft = 0, carsRight = 0, greenMan = "yes";
+
+if(greenMan === "yes")
+{
+	console.log('cross the road');
+}
+
+
+greenMan === "yes" -> condition, if true console.log instruction is executed.
+->cross the road
+
+
+IF-ELSE STATEMENT
+
+when if fails, the other instruction under else is executed.
+
+var carsLeft = 0, carsRight = 0, greenMan = "no";
+
+if(greenMan === "yes")
+{
+	console.log('cross the road');
+}
+else
+{
+	console.log('don't cross the road');
+}
+
+
+here if condition fails, so console.log under else is executed.
+->don't cross the road
+
+
+IF- ELSE IF STATEMENTS
+when a number of if is needed to be used, so we use else-if, when if fails,
+moves to else if
+
+var carsLeft = 0, carsRight = 0, greenMan = "no";
+
+if(greenMan === "yes")
+{
+	console.log('cross the road');
+}
+else if( carsLeft ===0)
+{
+	console.log("All clear! cross the road");
+}
+
+here if condition fails, and condition of else if
+matches so console.log under else if is executed.
+->All clear! cross the road
+
+
+when everything fails, else is executed, ie it doesn't need a prior
+condition. It works when if, all else- if fails
+
+var carsLeft = 1, carsRight = 0, greenMan = "no";
+
+if(greenMan === "yes")
+{
+	console.log('cross the road');
+}
+else if( carsLeft ===0)
+{
+	console.log("All clear! cross the road");
+}
+else
+{
+	console.log("don't cross the road");
+}
+
+Both if and else if failed, so else is executed.
+->don't cross the road
+
+
+FOR CONDITIONS
+A number of operators can be used to verify two or more conditions (LHS , RHS) in one
+such as && (logical AND), || (logical OR)
+
+For && - both LHS and RHS must be true
+For || - one either LHS or RHS must be true
+
+var carsLeft = 1, carsRight = 0, greenMan = "no";
+
+if(greenMan === "yes")
+{
+	console.log('cross the road');
+}
+else if( carsLeft ===0 && cardRight ===0)
+{
+	console.log("All clear! cross the road");
+}
+else
+{
+	console.log("don't cross the road");
+}
+
+if fails, as greenMan = "no" is false
+
+Here carsLeft ===1 is false, for && LHS and RHS need to true to execute
+else if
+
+so else condition is executed.
+->don't cross the road
+
+ORDER OF PRECEDENCE
+() - grouping
+=== - strict equals
+&& - Logical AND
+|| - Logical OR
