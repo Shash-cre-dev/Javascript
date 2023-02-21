@@ -1,0 +1,82 @@
+LOOPS
+
+Loops in JS, allow us to perform a set of instructions multiple times. 
+Repetitive execution and allows program to be more flexible.
+
+FOR LOOP
+
+for(condition){
+}
+
+when condition is met. Instructions are executed a number of times based on the
+condition
+
+for - plural, if - singular
+
+Eg: 
+
+var classRegister = ["Lawrence", "John", "Jeff"];
+
+for(var i = 0; i<classRegister.Length; i++)
+{
+	console.log(classRegister[i]);
+}
+
+->Lawrence
+  John
+  Jeff
+
+var i = 0 - index counter - to keep the index/ start point
+i < classRegister.Length - condition - for running for loop runs
+i++ - increment operator - incrementing till the end of count
+
+NOTE: The condition inside the for loop must be false/not met at a certain interval.
+To go out of the for loop.
+
+Iteration can be done by Increment(i++)/Decrement(i--)
+
+Eg: 
+
+var classRegister = ["Lawrence", "John", "Jeff"];
+
+for(var i = classRegister.Length -1; i>=0 ; i--)
+{
+	console.log(classRegister[i]);
+}
+
+->Jeff
+  John
+  Lawrence
+
+var i = classRegister.Length -1 - start point
+i>=0 = condition 
+i-- = decrement operator
+
+Another way of reversing
+
+for(var i =0; i<classRegister.Length; i++)
+{
+	console.log(classRegister[i]);
+}
+
+FOR-IN LOOP
+we are looking for the indexes in the classRegister
+
+start index, condition and increment not present
+
+Eg: var classRegister = ["Lawrence", "John", "Jeff"];
+
+for(var index in classRegister)
+{
+	console.log(classRegister[index]);
+}
+
+index already starts from 0, without assignment
+no increment condition- automatic increments
+
+->Lawrence
+  John
+  Jeff
+
+STICK WITH FOR LOOPS, AS THEY ARE HEAVILY OPTIMIZED. THEY ARE INCREDIBLY 
+SUPER FAST
