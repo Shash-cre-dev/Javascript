@@ -1,0 +1,35 @@
+ES6
+short for ECMAScript
+
+ECMA - controls the standards of the language
+	- better versions of the language
+
+JavaScript can also be called ECMAScript
+
+
+ES6 allows new ways to create symbol names
+
+
+var symbolName = "value reference in the memory";
+
+let letSymbol = "scoped value"
+
+const symName = "constant value in memory"
+
+
+let and const - respect the scope within with they are defined.
+
+var - doesn't respect the scope, jumps out of the scope and attaches with 
+window obj, so naming symbols conventions can be difficult
+
+var only respects the scope inside a Function/Sub-routine
+
+
+Use let to respect the scope.
+
+Eg:
+
+for(let i=0; i<5; i++){
+}
+
+ 
