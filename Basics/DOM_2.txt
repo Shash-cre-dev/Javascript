@@ -1,0 +1,51 @@
+CHANGING ELEMENTS CONTENT
+
+Each element is rendered/block loaded line by line and one by one in HTML.
+
+Put your JS file at the bottom of the HTML body, so that all HTML elements
+are loaded first and then you can start modifying the JS file.
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="hello">Hello World </p>
+    <p class="pClass">My Name is </p>
+    <p id="name">Shashank Kumar </p>
+    <h1 class="pClass">JavaScript Essentials</h1>
+    <script src="myapp.js"></script>
+  </body>
+</html>
+
+
+The <script src="myapp.js"></script> is inside the HTML body at the bottom.
+
+document.getElementById('hello')
+-><p id="hello">Hello World </p> - return the element selected by id hello
+
+This is DOM is just a reference to an object.
+
+
+You can modify such objects by the .innerText property.
+
+Eg: document.getElementById('hello').innerText = "New World";
+
+Changed the Hello World to New World in the browser.
+
++= can be used as a concatenation
+
+Eg: document.getElementById('hello').innerText += " Order";
+
+cocatenated the New World to New World Order in the browser.
+
+
+
+
+
+
+
