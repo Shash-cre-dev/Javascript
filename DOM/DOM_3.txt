@@ -1,0 +1,118 @@
+CHANGING THE ELEMENT'S STYLE
+
+General Way - styling through css
+
+Changing the element's properties such as colour, style etc via the Javascript
+
+Fist target an element via a symbol name
+then modify via .style
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaSript Essentials</title>
+  </head>
+  <body>
+    <h1 id="style">Style Me!!</h1>
+    <script src="myapp.js"></script>
+  </body>
+</html>
+
+
+
+SINGLE ELEMENT
+
+Let's change the properties of the h1 tag by .style (Single Element)
+
+.style obj - contains all the properties that can be applied
+to style an element (from the CSS or More)
+
+var el = document.getElementById('style');
+
+el.style.background = "blue";
+
+be careful, in JavaScript you have to use " " not like simple text that is used in
+CSS.
+
+el.style.background = "blue";
+el.style.color = "white";
+el.style.background = "200px";
+
+Everything should be in " ". 
+
+
+
+
+MULTIPLE ELEMENTS
+
+An efficient way for the Programmer (Multiple Element)
+
+by using style.cssText - multiple properties can be modified together in 
+a single go.
+
+Eg: el.style.cssText = "background:blue; color: white; width: 200px" ;
+
+
+If you already have some CSS applied before, you can use += to add more CSS to the
+previous applied CSS
+
+el.style.cssText += "height:200px;";
+
+This reduces a significant time difference during large website text loading
+from the Single Element Method cause in single-element rendering the text rendered
+line by line which will slow down the speed of website loading when large
+websites have to be loaded.
+
+
+
+
+TO SELECT PREDEFINED / COMPUTED STYLES
+
+by the getComputedStyle()
+
+it requires the name of the symbol that references that particular objects
+to pass through as arguments.
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaSript Essentials</title>
+    <style>
+		#style
+		{
+				background: blue;
+				color: white;
+				width: 100px;
+				height: 100px;
+		}
+    </style>
+    </head>
+    <body>
+    		<h1 id="style">Style Me!!</h1>
+    <script src="myapp.js"></script>
+  </body>
+</html>
+
+
+In the above code predefined styles/ computed styles present
+
+#style - is used here to access the HTML tag with id = "style"
+.class - can be used for classes in the same way
+
+
+
+var el = document.getElementById('style');
+
+getComputedStyle(el)
+
+Computed Properties are Computed Properties, they are not the actual style
+properties that you are applying by JavaScript. They come from CSS files and
+Browser Default settings. 
+
+Javascript applies the styles via the .style (style attribute)
+
+JavaScript overrides the Computed Properties.

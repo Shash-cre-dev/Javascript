@@ -1,0 +1,78 @@
+EVENT HANDLERS
+
+What happens when the user presses a Key, clicks somewhere on the website
+etc these are events.
+
+An Event Happened
+Run a Function
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Essentials</title>
+  </head>
+  <body>
+    <select name = "cars">
+		<option value="BMW">BMW</option>
+		<option value="tata">Tata</option>
+		<option value="fiat">Fiat</option>
+		<option value="Ferrai">Ferrai</option>
+		</select>
+    <script src="myapp.js"></script>
+  </body>
+</html>
+
+
+
+var select = document.getElementsBy name('cars')[0]; -used to select BMW
+
+select.onclick = function(){} - when BMW is clicked this function runs
+
+
+event parameter is passed in () of function. don't necessarily need
+to provide this parameter, but using this is a good practice
+
+select.onclick = function(event){}; - good practice
+
+with this, you can assign an event object to .onclick, what happens
+in that event, what properties it triggers etc
+
+select.onclick = function(event){
+	console.log(event);
+}
+
+when used it triggers the event object and console.log ie the event's execution
+context is executed.
+
+return the type of event which occurred such as MouseEvent.
+MouseEvent because the event was triggered with a mouse click.
+
+onclick - triggers only a single event
+
+
+.addEventListener - triggers multiple events
+
+Eg: select.addEventListener('click', function(event){
+	
+	console.log(event, 'clicked by add event');
+	});
+
+->MouseEvent is Returned
+->clicked by add event
+
+You can add as many EventListener.
+
+TO remove an  event use .removeEventListener
+
+be careful while using it as event name/function name is passed as arguments
+
+Eg: function ClickCallback( event){
+
+		console.log(' clicked by add event Listener);
+    }
+
+    select.addEventListener( 'click', ClickCallBack); - adds the event Listener
+
+    select.removeEventListener('click', ClickCallback); - removes Event Listeners
